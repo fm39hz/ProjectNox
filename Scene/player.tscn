@@ -47,3 +47,7 @@ ID = 1
 
 [node name="InputManager" type="Node" parent="."]
 script = ExtResource("5_pgpv1")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
