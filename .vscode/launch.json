@@ -1,0 +1,26 @@
+{
+    "version": "0.0.1",
+    "configurations": [
+        {
+            "name": "Debug",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "Build",
+            "program": "",
+            "windows": {
+                "program": "Điền đường dẫn godot vào đây",
+                },
+            "linux": {
+                "program": "/usr/bin/godot-mono",
+                },
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "requireExactSource": false,
+            "enableStepFiltering": false,
+            "logging": {
+                "moduleLoad": false
+                },
+        }   
+    ]
+}
