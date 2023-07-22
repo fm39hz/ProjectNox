@@ -36,6 +36,11 @@ window/vsync/vsync_mode=0
 
 project/assembly_name="ProjectNox"
 
+[layer_names]
+
+2d_physics/layer_1="World Collision"
+2d_physics/layer_2="Hitbox"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
