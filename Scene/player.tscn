@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b3wrwkpgs7wj8"]
+[gd_scene load_steps=10 format=3 uid="uid://b3wrwkpgs7wj8"]
 
 [ext_resource type="Texture2D" uid="uid://doasixjuhiies" path="res://Asset/Texture/TestAnimation.png" id="1_58iwa"]
 [ext_resource type="Script" path="res://GameSystem/Component/Object/DynamicObject.cs" id="1_oj274"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Script/Player/Idle.cs" id="3_mrogf"]
 [ext_resource type="Script" path="res://Script/Player/Walk.cs" id="4_340n7"]
 [ext_resource type="Script" path="res://GameSystem/Component/Manager/InputManager.cs" id="5_pgpv1"]
+[ext_resource type="Script" path="res://GameSystem/Component/DamageSystem/HurtBox.cs" id="8_bnnsm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hvrkt"]
 radius = 6.0
@@ -51,3 +52,8 @@ script = ExtResource("5_pgpv1")
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 position_smoothing_speed = 7.0
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("8_bnnsm")
