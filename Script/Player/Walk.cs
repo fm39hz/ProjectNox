@@ -1,3 +1,4 @@
+using System;
 using GameSystem.Component.FiniteStateMachine;
 
 namespace  Actor.Attach.Player;	
@@ -14,6 +15,6 @@ namespace  Actor.Attach.Player;
 		// 	}
 		public override void RunningState(double delta){
 			base.RunningState(delta);
-			Object.Velocity = Object.Velocity.MoveToward(Object.InputManager.TopDownVector(Object.Velocity) * this.MaxSpeed, Acceleration);
+			Object.Velocity = Object.Velocity.MoveToward(Object.InputManager.TopDownVector(Object.Velocity) * this.MaxSpeed, Acceleration * Convert.ToSingle(delta));
 			}
 		}

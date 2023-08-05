@@ -37,16 +37,16 @@ CurrentState = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("6_53smw")
-Friction = 85.0
+Friction = 220.0
 NumberOfFrame = 2
 IsLoop = true
-AnimationSpeed = 5.0
+AnimationSpeed = 3.0
 
 [node name="Walk" type="Node" parent="StateMachine"]
 script = ExtResource("7_m0owd")
 MaxSpeed = 85.0
-Acceleration = 45.0
+Acceleration = 200.0
 NumberOfFrame = 6
 IsLoop = true
-AnimationSpeed = 5.0
+AnimationSpeed = 6.5
 ID = 1
