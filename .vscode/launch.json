@@ -21,6 +21,18 @@
             "logging": {
                 "moduleLoad": false
                 },
+            "pipeTransport": {
+                "pipeCwd": "${workspaceFolder}",
+                "pipeProgram": "/usr/bin/godot-mono",
+                "pipeArgs": [
+                    "build",
+                    "${workspaceFolder}/ProjectNox.csproj",
+                    "/property:GenerateFullPaths=true",
+                    "/consoleloggerparameters:NoSummary",
+                    "--verbose"
+                ],
+                "debuggerPath": "/usr/bin/netcoredbg"
+                }
         }   
     ]
 }
