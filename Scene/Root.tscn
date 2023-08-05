@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqlsboehkj3et"]
+
+[ext_resource type="PackedScene" uid="uid://dsadv0mtawqaf" path="res://Scene/Game.tscn" id="1_le808"]
+[ext_resource type="PackedScene" uid="uid://dkqt5r4vtamvb" path="res://Scene/ControlSpace.tscn" id="2_m58ca"]
+
+[node name="Root" type="Node"]
+
+[node name="Game" parent="." instance=ExtResource("1_le808")]
+
+[node name="ControlSpace" parent="." instance=ExtResource("2_m58ca")]

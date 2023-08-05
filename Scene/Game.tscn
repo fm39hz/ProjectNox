@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsadv0mtawqaf"]
+
+[ext_resource type="PackedScene" uid="uid://djstlct2tu0pj" path="res://Scene/Amos.tscn" id="1_vkoxu"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Amos" parent="." instance=ExtResource("1_vkoxu")]
+position = Vector2(158, 82)
