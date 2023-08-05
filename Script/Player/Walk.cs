@@ -4,7 +4,7 @@ namespace  Actor.Attach.Player;
 	public partial class Walk : DynamicState{
 		public override void _Ready(){
 			base._Ready();
-			Object.ObjectInputManager.MovementKeyPressed += this.SetCondition;
+			Object.InputManager.MovementKeyPressed += this.SetCondition;
 			}
 		// public override void SetCondition(bool condition){
 		// 	base.SetCondition(condition);
@@ -14,6 +14,6 @@ namespace  Actor.Attach.Player;
 		// 	}
 		public override void RunningState(double delta){
 			base.RunningState(delta);
-			Object.Velocity = Object.ObjectInputManager.TopDownVector(Object.Velocity) * this.MovingSpeed;
+			Object.Velocity = Object.InputManager.TopDownVector(Object.Velocity) * this.MaxSpeed;
 			}
 		}
