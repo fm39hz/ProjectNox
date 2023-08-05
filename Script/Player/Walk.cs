@@ -14,6 +14,6 @@ namespace  Actor.Attach.Player;
 		// 	}
 		public override void RunningState(double delta){
 			base.RunningState(delta);
-			Object.Velocity = Object.InputManager.TopDownVector(Object.Velocity) * this.MaxSpeed;
+			Object.Velocity = Object.Velocity.MoveToward(Object.InputManager.TopDownVector(Object.Velocity) * this.MaxSpeed, Acceleration);
 			}
 		}

@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "Uc7b7OhnBLQrFKQwBsVSp3vd5ojF3/44p0HbnQAjl3tH9dGx6qbj60QZIP1Qp5cCuM4WaKwwZUMCGcoCbRZLtA==",
+  "success": true,
+  "projectFilePath": "/home/fm39hz/Disk/WorkSpace/My_game/Godot/ProjectNox/ProjectNox.csproj",
+  "expectedPackageFiles": [
+    "/home/fm39hz/.nuget/packages/godot.sourcegenerators/4.1.1/godot.sourcegenerators.4.1.1.nupkg.sha512",
+    "/home/fm39hz/.nuget/packages/godotsharp/4.1.1/godotsharp.4.1.1.nupkg.sha512",
+    "/home/fm39hz/.nuget/packages/godotsharpeditor/4.1.1/godotsharpeditor.4.1.1.nupkg.sha512",
+    "/home/fm39hz/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.20/microsoft.aspnetcore.app.ref.6.0.20.nupkg.sha512"
+  ],
+  "logs": []
+}

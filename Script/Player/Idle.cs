@@ -13,4 +13,8 @@ namespace  Actor.Attach.Player;
 				}
 			Condition = !condition;
 			}
+		public override void RunningState(double delta){
+			base.RunningState(delta);
+			Object.Velocity = Object.Velocity.MoveToward(Object.InputManager.TopDownVector(Object.Velocity) * this.MaxSpeed, Friction);
+			}
 		}
