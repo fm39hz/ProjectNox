@@ -40,13 +40,13 @@ script = ExtResource("6_53smw")
 Friction = 220.0
 NumberOfFrame = 2
 IsLoop = true
-AnimationSpeed = 0.5
+AnimationSpeed = 1.0
 
 [node name="Walk" type="Node" parent="StateMachine"]
 script = ExtResource("7_m0owd")
 MaxSpeed = 85.0
 Acceleration = 120.0
+ID = 1
 NumberOfFrame = 6
 IsLoop = true
 AnimationSpeed = 10.0
-ID = 1
