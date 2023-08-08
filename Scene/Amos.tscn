@@ -38,7 +38,7 @@ CurrentState = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("6_53smw")
-Friction = 200.0
+Friction = 350.0
 NumberOfFrame = 2
 IsLoop = true
 AnimationSpeed = 1.0
