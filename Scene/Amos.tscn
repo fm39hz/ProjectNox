@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://djstlct2tu0pj"]
+[gd_scene load_steps=11 format=3 uid="uid://djstlct2tu0pj"]
 
 [ext_resource type="Script" path="res://GameSystem/Component/Object/Directional/LivingObject.cs" id="1_s7ao5"]
 [ext_resource type="Texture2D" uid="uid://3thsohvvc5pl" path="res://Asset/Texture/Amos.png" id="2_ghwsf"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Script/Player/Idle.cs" id="6_53smw"]
 [ext_resource type="Script" path="res://Script/Player/Walk.cs" id="7_m0owd"]
 [ext_resource type="Script" path="res://GameSystem/Data/LivingObjectData.cs" id="8_kyje7"]
+[ext_resource type="Script" path="res://GameSystem/Data/DirectionData.cs" id="9_yqbw7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fdc1o"]
 radius = 4.0
@@ -55,3 +56,6 @@ AnimationSpeed = 10.0
 [node name="LivingObjectData" type="Node" parent="."]
 script = ExtResource("8_kyje7")
 Health = 100.0
+
+[node name="DirectionData" type="Node" parent="LivingObjectData"]
+script = ExtResource("9_yqbw7")
