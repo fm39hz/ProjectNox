@@ -3,24 +3,32 @@ using GameSystem.Component.FiniteStateMachine;
 
 namespace Actor.Attach.Player;
 
-public partial class Walk : DynamicState
+public partial class Walk : StaticState
 {
+	public PlayerBody Target { get; set; }
+	public override void _EnterTree()
+	{
+		base._EnterTree();
+		Target = StateMachine.GetParent<PlayerBody>();
+	}
 	public override void _Ready()
 	{
 		base._Ready();
-		Object.InputManager.MovementKeyPressed += SetCondition;
+		var _inputManager = Target.InputManager;
+		_inputManager.MovementKeyPressed += SetCondition;
+		_inputManager.ActionKeyPressed += ResetCondition;
 	}
 
 	// public override void SetCondition(bool condition){
 	// 	base.SetCondition(condition);
-	// 	if (Object.Velocity.IsZeroApprox() && !StateController.PreviousState.IsState(this)){
+	// 	if (Target.Velocity.IsZeroApprox() && !StateController.PreviousState.IsState(this)){
 	// 		Condition = false;
 	// 		}
 	// 	}
 	public override void RunningState(double delta)
 	{
 		base.RunningState(delta);
-		Object.Velocity = Object.Velocity.MoveToward(Object.InputManager.TopDownVector(Object.Velocity) * MaxSpeed,
+		Target.Velocity = Target.Velocity.MoveToward(Target.InputManager.TopDownVector(Target.Velocity) * MaxSpeed,
 			Acceleration * Convert.ToSingle(delta));
 	}
 }

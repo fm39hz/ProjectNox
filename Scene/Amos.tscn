@@ -1,61 +1,46 @@
-[gd_scene load_steps=11 format=3 uid="uid://djstlct2tu0pj"]
+[gd_scene load_steps=9 format=3 uid="uid://djstlct2tu0pj"]
 
-[ext_resource type="Script" path="res://GameSystem/Component/Object/Directional/LivingObject.cs" id="1_s7ao5"]
+[ext_resource type="Script" path="res://GameSystem/Component/Object/Compositor/CreatureCompositor.cs" id="1_2no1j"]
+[ext_resource type="Script" path="res://Script/Player/PlayerBody.cs" id="2_ce40q"]
 [ext_resource type="Texture2D" uid="uid://3thsohvvc5pl" path="res://Asset/Texture/Amos.png" id="2_ghwsf"]
 [ext_resource type="Script" path="res://GameSystem/Component/Animation/SpriteSheet.cs" id="3_ack5i"]
 [ext_resource type="Script" path="res://GameSystem/Component/Manager/InputManager.cs" id="4_u3nnd"]
 [ext_resource type="Script" path="res://GameSystem/Component/FiniteStateMachine/StateMachine.cs" id="5_p56cb"]
 [ext_resource type="Script" path="res://Script/Player/Idle.cs" id="6_53smw"]
 [ext_resource type="Script" path="res://Script/Player/Walk.cs" id="7_m0owd"]
-[ext_resource type="Script" path="res://GameSystem/Data/LivingObjectData.cs" id="8_kyje7"]
-[ext_resource type="Script" path="res://GameSystem/Data/DirectionData.cs" id="9_yqbw7"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fdc1o"]
-radius = 4.0
-height = 16.0
+[node name="Player" type="Node2D" node_paths=PackedStringArray("Target")]
+script = ExtResource("1_2no1j")
+Target = NodePath("PlayerBody")
 
-[node name="Amos" type="CharacterBody2D"]
-script = ExtResource("1_s7ao5")
+[node name="PlayerBody" type="CharacterBody2D" parent="."]
+script = ExtResource("2_ce40q")
 
-[node name="SpriteSheet" type="Sprite2D" parent="."]
+[node name="InputManager" type="Node" parent="PlayerBody"]
+script = ExtResource("4_u3nnd")
+
+[node name="StateMachine" type="Node" parent="PlayerBody" node_paths=PackedStringArray("CurrentState")]
+script = ExtResource("5_p56cb")
+CurrentState = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="PlayerBody/StateMachine"]
+script = ExtResource("6_53smw")
+Friction = 400.0
+NumberOfFrame = 2
+IsLoop = true
+AnimationSpeed = 3.0
+
+[node name="Walk" type="Node" parent="PlayerBody/StateMachine"]
+script = ExtResource("7_m0owd")
+MaxSpeed = 85.0
+Acceleration = 400.0
+NumberOfFrame = 6
+IsLoop = true
+AnimationSpeed = 10.0
+
+[node name="SpriteSheet" type="Sprite2D" parent="PlayerBody"]
 position = Vector2(0, -28)
 texture = ExtResource("2_ghwsf")
 hframes = 24
 vframes = 3
 script = ExtResource("3_ack5i")
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -4)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_fdc1o")
-
-[node name="InputManager" type="Node" parent="."]
-script = ExtResource("4_u3nnd")
-
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("CurrentState")]
-script = ExtResource("5_p56cb")
-CurrentState = NodePath("Idle")
-
-[node name="Idle" type="Node" parent="StateMachine"]
-script = ExtResource("6_53smw")
-Friction = 350.0
-NumberOfFrame = 2
-IsLoop = true
-AnimationSpeed = 1.0
-
-[node name="Walk" type="Node" parent="StateMachine"]
-script = ExtResource("7_m0owd")
-MaxSpeed = 85.0
-Acceleration = 800.0
-ID = 1
-NumberOfFrame = 6
-IsLoop = true
-AnimationSpeed = 10.0
-
-[node name="LivingObjectData" type="Node" parent="."]
-script = ExtResource("8_kyje7")
-Health = 100.0
-
-[node name="DirectionData" type="Node" parent="LivingObjectData"]
-script = ExtResource("9_yqbw7")
