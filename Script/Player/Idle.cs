@@ -21,10 +21,6 @@ public partial class Idle : StaticState
 
 	public override void SetCondition(bool condition)
 	{
-		if (!IsInitialized)
-		{
-			return;
-		}
 
 		Condition = !condition;
 	}
