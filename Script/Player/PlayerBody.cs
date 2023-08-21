@@ -8,6 +8,6 @@ public partial class PlayerBody : Creature
 	public override void _EnterTree()
 	{
 		base._EnterTree();
-		InputManager = this.GetFirstChildOfType<InputManager>();
+		InputManager = Compositor.GetFirstChildOfType<InputManager>();
 	}
 }

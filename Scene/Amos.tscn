@@ -21,9 +21,6 @@ Target = NodePath("PlayerBody")
 [node name="PlayerBody" type="CharacterBody2D" parent="."]
 script = ExtResource("2_ce40q")
 
-[node name="InputManager" type="Node" parent="PlayerBody"]
-script = ExtResource("4_u3nnd")
-
 [node name="SpriteSheet" type="Sprite2D" parent="PlayerBody"]
 position = Vector2(-16, -60)
 texture = ExtResource("2_ghwsf")
@@ -33,13 +30,13 @@ vframes = 3
 script = ExtResource("3_ack5i")
 metadata/_edit_lock_ = true
 
-[node name="HurtBox" type="Area2D" parent="PlayerBody/SpriteSheet"]
-script = ExtResource("5_60ros")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBody"]
 position = Vector2(0, -4)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_xax75")
+
+[node name="HurtBox" type="Area2D" parent="PlayerBody"]
+script = ExtResource("5_60ros")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("CurrentState")]
 script = ExtResource("5_p56cb")
@@ -59,3 +56,6 @@ Acceleration = 400.0
 NumberOfFrame = 6
 IsLoop = true
 AnimationSpeed = 10.0
+
+[node name="InputManager" type="Node" parent="."]
+script = ExtResource("4_u3nnd")
