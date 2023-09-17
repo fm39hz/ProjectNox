@@ -8,31 +8,19 @@
             "preLaunchTask": "Build",
             "program": "",
             "windows": {
-                "program": "D://Game_Engine//Godot//Godot_Win//Godot.exe",
-                },
+                "program": "D:/Game_Engine/Godot/Godot_Win/Godot.exe",
+            },
             "linux": {
                 "program": "/usr/bin/godot-mono",
-                },
+            },
             "cwd": "${workspaceFolder}",
             "console": "internalConsole",
-            "stopAtEntry": false,
-            "requireExactSource": false,
+            "stopAtEntry": true,
+            "requireExactSource": true,
             "enableStepFiltering": false,
             "logging": {
-                "moduleLoad": false
-                },
-            "pipeTransport": {
-                "pipeCwd": "${workspaceFolder}",
-                "pipeProgram": "/usr/bin/godot-mono",
-                "pipeArgs": [
-                    "build",
-                    "${workspaceFolder}/ProjectNox.csproj",
-                    "/property:GenerateFullPaths=true",
-                    "/consoleloggerparameters:NoSummary",
-                    "--verbose"
-                ],
-                "debuggerPath": "/usr/bin/netcoredbg"
-                }
-        }   
+                "moduleLoad": true
+            },
+        }
     ]
 }

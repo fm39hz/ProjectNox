@@ -11,13 +11,9 @@ config_version=5
 [application]
 
 config/name="ProjectNox"
-run/main_scene="res://Scene/Root.tscn"
+run/main_scene="res://Scene/Game.tscn"
 config/features=PackedStringArray("4.1", "C#", "Forward Plus")
 config/icon="res://icon.svg"
-
-[autoload]
-
-GlobalData="*res://GameSystem/Data/GlobalData.cs"
 
 [debug]
 

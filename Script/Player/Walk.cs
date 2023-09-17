@@ -1,37 +1,35 @@
-using System;
 using GameSystem.Component.FiniteStateMachine;
-using GameSystem.Component.Object.Compositor;
-using GameSystem.Utils;
+using GameSystem.Object.Compositor.Implemented;
+using GameSystem.Component.Object.Composition;
+using System.IO;
 
-namespace Actor.Attach.Player;
+namespace Attach.PlayerState;
 
 public partial class Walk : StaticState
 {
-	public PlayerBody Target { get; private set; }
+	public Player Target { get; private set; }
 
 	public override void _EnterTree()
 	{
 		base._EnterTree();
-		Target = StateMachine.GetOwner<CreatureCompositor>().GetFirstChildOfType<PlayerBody>();
+		Target = StateMachine.GetOwner<Player>();
 	}
+
 	public override void _Ready()
 	{
 		base._Ready();
-		var _inputManager = Target.InputManager;
+		var _inputManager = Target.InputHandler;
 		_inputManager.MovementKeyPressed += SetCondition;
 		_inputManager.ActionKeyPressed += ResetCondition;
 	}
 
-	// public override void SetCondition(bool condition){
-	// 	base.SetCondition(condition);
-	// 	if (Target.Velocity.IsZeroApprox() && !StateController.PreviousState.IsState(this)){
-	// 		Condition = false;
-	// 		}
-	// 	}
 	public override void RunningState(double delta)
 	{
+		if (Target.Composition is not Creature _target)
+		{
+			throw new InvalidDataException("Player Must be Creature");
+		}
 		base.RunningState(delta);
-		Target.Velocity = Target.Velocity.MoveToward(Target.InputManager.TopDownVector(Target.Velocity) * MaxSpeed,
-			Acceleration * Convert.ToSingle(delta));
+		_target.Velocity = Target.InputHandler.TopDownVector(_target.Velocity) * MaxSpeed;
 	}
 }
