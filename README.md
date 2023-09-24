@@ -5,5 +5,6 @@
   git clone https://github.com/fm39hz/ProjectNox.git
   cd ./ProjectNox
   git submodule init
+  git submodule sync
   git submodule update
   ```
